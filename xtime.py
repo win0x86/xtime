@@ -25,11 +25,12 @@ class xTime(object):
             stacks = format_stack()
             start = time()
             cls._stack_count += 1
-            # print "%s[%s] %s Current stack: %s" % ("  " * cls._stack_count, func, magic, "<--".join(s.replace("\n", "") for s in stacks))
-            print "%s[%s] %s" % ("  " * cls._stack_count, magic, func)
+            _blank = "  " * cls._stack_count
+            # print "%s[%s] %s Current stack: %s" % (_blank, func, magic, "<--".join(s.replace("\n", "") for s in stacks))
+            print "%s[%s] %s" % (_blank, magic, func)
             r = func(*args, **kwargs)
             print "%s[%s] Func: %s time: %.4s ms" % (
-                "  " * cls._stack_count,
+                _blank,
                 magic,
                 func, 
                 (time() - start) * 1000)
@@ -47,6 +48,7 @@ def test(name):
     a()
 
 
+@xTime.xtime
 def a():
     print "a"
     b()
