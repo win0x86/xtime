@@ -27,9 +27,9 @@ class xTime(object):
             cls._stack_count += 1
             _blank = "  " * cls._stack_count
             # print "%s[%s] %s Current stack: %s" % (_blank, func, magic, "<--".join(s.replace("\n", "") for s in stacks))
-            print "%s[%s] %s" % (_blank, magic, func)
+            print "%s[%s S] %s" % (_blank, magic, func)
             r = func(*args, **kwargs)
-            print "%s[%s] Func: %s time: %.4s ms" % (
+            print "%s[%s E] Func: %s time: %.4s ms" % (
                 _blank,
                 magic,
                 func, 
